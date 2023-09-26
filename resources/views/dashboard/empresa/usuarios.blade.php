@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Usuários Cadastrados</h1>
+            <h1 class="h3 mb-0 text-gray-800">Usuários/Empresas</h1>
         </div>
 
         @if(session('success'))
@@ -31,6 +31,12 @@
                 <div class="card border-left-dark shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row">
+                            <div class="col-12">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-3">
+                                    <a class="btn btn-outline-primary" href="{{ route('cadastraUsuario') }}">Cadastrar</a>
+                                    <button class="btn btn-outline-success" type="button" id="exportar">EXCEL</button>
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <div class="table-responsive">
                                     <table class="table table-striped" id="tabela" width="100%" cellspacing="0">

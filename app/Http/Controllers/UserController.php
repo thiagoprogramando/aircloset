@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -53,5 +54,62 @@ class UserController extends Controller
 
         $user->delete();
         return redirect()->back()->with('success', 'Usuário excluído com sucesso!');
+    }
+
+    public function cadastraUsuario(Request $request, $id = null)
+    {
+        if($id) {
+            $user = User::find($id);
+            return view('dashboard.empresa.cadastro.cadastraUsuario', ['id' => $id, 'usuario' => $user]);
+        }
+
+        $user = User::find($request->id);
+        if ($user) {
+            if (!empty($request->nome)) {
+                $user->nome = $request->nome;
+            }
+            if (!empty($request->email)) {
+                $user->email = $request->email;
+            }
+            if (!empty($request->password)) {
+                $user->password = Hash::make($request->password);
+            }
+            if (!empty($request->cpfcnpj)) {
+                $user->cpfcnpj = $request->cpfcnpj;
+            }
+            if (!empty($request->celular)) {
+                $user->celular = $request->celular;
+            }
+            if (!empty($request->data_nascimento)) {
+                $user->data_nascimento = $request->data_nascimento;
+            }
+            if (!empty($request->sexo)) {
+                $user->sexo = $request->sexo;
+            }
+            if (!empty($request->tipo)) {
+                $user->tipo = $request->tipo;
+            }
+            if (!empty($request->cep)) {
+                $user->cep = $request->cep;
+            }
+            if (!empty($request->endereco)) {
+                $user->endereco = $request->endereco;
+            }
+            if (!empty($request->codigo)) {
+                $user->codigo = $request->codigo;
+            }
+
+            $user->loja = Auth::user()->loja;
+            $user->save();
+
+            return redirect()->route('cadastraUsuario', ['id' => $request->id])->with('success', 'Usuário atualizado com sucesso.');
+        } else {
+            $user = new User();
+            $user->save();
+            $id = $user->id;
+
+            $user = User::find($id);
+            return view('dashboard.empresa.cadastro.cadastraUsuario', ['id' => $id, 'usuario' => $user]);
+        }
     }
 }

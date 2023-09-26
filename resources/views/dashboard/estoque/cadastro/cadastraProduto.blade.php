@@ -247,7 +247,7 @@
                                                         @foreach ($imagens as $key => $imagem)
                                                             <tr>
                                                                 <td>{{ $imagem->id }}</td>
-                                                                <td> <img class="img-prev" src="{{ $imagem->file }}"> </td>
+                                                                <td> <img class="img-prev" src="{{ asset($imagem->file) }}"> </td>
                                                                 <td class="text-center">
                                                                     <form action="{{ route('excluiImagem') }}" method="POST">
                                                                         <input type="hidden" name="id" value="{{ $imagem->id }}">

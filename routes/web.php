@@ -33,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/excluiCategoria', [CategoriaController::class, 'excluiCategoria'])->name('excluiCategoria');
 
     Route::get('/usuarios/{tipo}', [UserController::class, 'usuarios'])->name('usuarios');
+    Route::get('/cadastraUsuario/{id?}', [UserController::class, 'cadastraUsuario'])->name('cadastraUsuario');
+    Route::post('/cadastraUsuario/{id?}', [UserController::class, 'cadastraUsuario'])->name('cadastraUsuario');
     Route::post('excluiUsuario', [UserController::class, 'excluiUsuario'])->name('excluiUsuario');
 });
 

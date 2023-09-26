@@ -35,7 +35,7 @@
                                                 <td>{{ $categoria->id }}</td>
                                                 <td>{{ $categoria->titulo }}</td>
                                                 <td>{{ $categoria->desc }}</td>
-                                                <td><img src="{{ $categoria->file }}" class="img-prev"></td>
+                                                <td> <img class="img-prev" src="{{ asset($categoria->file) }}"> </td>
                                                 <td class="text-center">
                                                     <form action="{{ route('excluiCategoria') }}" method="POST">
                                                         <input type="hidden" value={{  csrf_token() }} name="_token">

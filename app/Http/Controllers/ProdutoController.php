@@ -84,7 +84,7 @@ class ProdutoController extends Controller
                 }
 
                 $produto->save();
-                return redirect()->back()->with('success', 'Produto cadastrado/atualizado com sucesso.');
+                return redirect()->route('cadastraProduto', ['id' => $request->id])->with('success', 'Produto cadastrado/atualizado com sucesso.');
             } else {
                 return redirect()->route('listaProduto')->with('error', 'Produto não encontrado.');
             }
@@ -104,7 +104,7 @@ class ProdutoController extends Controller
             $imagem->file = Storage::url($caminhoImagem);
             $imagem->save();
 
-            return redirect()->back()->with('success', 'Imagem aplicada com sucesso!');
+            return redirect()->route('cadastraProduto', ['id' => $request->id])->with('success', 'Imagem aplicada com sucesso.');
         } else {
             return redirect()->back()->with('error', 'Nenhuma imagem selecionada.');
         }
@@ -124,28 +124,28 @@ class ProdutoController extends Controller
             return redirect()->route('listaProduto')->with('success', 'Produto excluído com sucesso.');
         }
     }
-    public function aplicaCategoria(Request $request) {
 
+    public function aplicaCategoria(Request $request) {
         $categoria = new CategoriaProduto();
         $categoria->id_produto = $request->input('id');
         $categoria->id_categoria = $request->input('categoria');
         $categoria->save();
 
-        return redirect()->back()->with('success', 'Categoria aplicada com sucesso!');
+        return redirect()->route('cadastraProduto', ['id' => $request->id])->with('success', 'Categoria aplicada com sucesso.');
     }
 
     public function excluiCategoriaProduto(Request $request) {
         $categoria = CategoriaProduto::find($request->id);
 
         if (!$categoria) {
-            return redirect()->back()->with('error', 'Categoria não encontrado.');
+            return redirect()->route('cadastraProduto', ['id' => $request->produto])->with('error', 'Categoria não encontrado.');
         }
 
-        $categoria->delete();
         if ($request->has('id')) {
+            $categoria->delete();
             return redirect()->route('cadastraProduto', ['id' => $request->produto])->with('success', 'Categoria excluída com sucesso.');
         } else {
-            return redirect()->route('listaProduto')->with('success', 'Categoria excluída com sucesso.');
+            return redirect()->route('cadastraProduto', ['id' => $request->produto])->with('error', 'Erro ao excluir Categoria.');
         }
     }
 }

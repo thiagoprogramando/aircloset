@@ -9,18 +9,18 @@ return new class extends Migration
     public function up(): void {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('cpfcnpj')->unique();
-            $table->string('data_nascimento');
-            $table->string('sexo');
-            $table->string('celular');
-            $table->string('termos');
-            $table->string('ofertas');
-            $table->string('tipo');
-            $table->string('cep');
-            $table->string('endereco');
+            $table->string('nome')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('password')->nullable();
+            $table->string('cpfcnpj')->unique()->nullable();
+            $table->string('data_nascimento')->nullable();
+            $table->string('sexo')->nullable();
+            $table->string('celular')->nullable();
+            $table->string('termos')->nullable();
+            $table->string('ofertas')->nullable();
+            $table->string('tipo')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('endereco')->nullable();
             $table->integer('loja')->nullable();
             $table->string('codigo')->nullable();
             $table->rememberToken();
