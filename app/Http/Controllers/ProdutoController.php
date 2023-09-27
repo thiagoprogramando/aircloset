@@ -15,12 +15,16 @@ class ProdutoController extends Controller
 {
     public function listaProduto(Request $request) {
         $filtroTitulo = $request->input('titulo');
+        $filtroLoja = $request->input('loja');
 
         $produtos = DB::table('produto')
         ->leftJoin('users', 'produto.loja', '=', 'users.id')
         ->select('produto.*', 'users.nome as nome_loja')
         ->when($filtroTitulo, function ($query) use ($filtroTitulo) {
             return $query->where('produto.titulo', 'like', '%' . $filtroTitulo . '%');
+        })
+        ->when($filtroLoja, function ($query) use ($filtroLoja) {
+            return $query->where('produto.loja', $filtroLoja);
         })
         ->get();
         return view('dashboard.estoque.listaProduto', ['produtos' => $produtos]);

@@ -75,6 +75,7 @@
                                                         <option value="1">Administrador</option>
                                                         <option value="2">Empresa</option>
                                                         <option value="3">Cliente</option>
+                                                        <option value="4">Afiliado</option>
                                                     </select>
                                                 </div>
                                             </div>

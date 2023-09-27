@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CupomController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -36,5 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cadastraUsuario/{id?}', [UserController::class, 'cadastraUsuario'])->name('cadastraUsuario');
     Route::post('/cadastraUsuario/{id?}', [UserController::class, 'cadastraUsuario'])->name('cadastraUsuario');
     Route::post('excluiUsuario', [UserController::class, 'excluiUsuario'])->name('excluiUsuario');
+
+    Route::get('/cupom', [CupomController::class, 'index'])->name('cupom');
+    Route::post('/cadastraCupom', [CupomController::class, 'cadastraCupom'])->name('cadastraCupom');
+    Route::post('excluiCupom', [CupomController::class, 'excluiCupom'])->name('excluiCupom');
 });
 

@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="{{ asset('templante/js/jquery.js') }}"></script>
         <link href="{{ asset('templante/css/sb-admin-2.css') }}" rel="stylesheet">
 
     </head>
@@ -48,9 +49,9 @@
                     <div id="collapsePedidos" class="collapse" aria-labelledby="headingFinanceiro" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="#">Pedidos</a>
-                            <a class="collapse-item" href="#">Cupom</a>
-                            <a class="collapse-item" href="#">Clientes</a>
-                            <a class="collapse-item" href="#">Afiliados</a>
+                            <a class="collapse-item" href="{{ route('cupom') }}">Cupom</a>
+                            <a class="collapse-item" href="/usuarios/3">Clientes</a>
+                            <a class="collapse-item" href="/usuarios/4">Afiliados</a>
                         </div>
                     </div>
                 </li>
@@ -98,7 +99,24 @@
                         </button>
 
                         <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <p class="p mt-2">Olá, User. Bom dia!</p>
+                            @php
+                                $nomeCompleto = Auth::user()->nome;
+                                $partesDoNome = explode(' ', $nomeCompleto);
+                                $primeiroNome = $partesDoNome[0];
+                                $segundoNome = $partesDoNome[1];
+
+                                $horaAtual = date('H');
+                                $saudacao = '';
+
+                                if ($horaAtual >= 0 && $horaAtual < 12) {
+                                    $saudacao = 'Bom dia';
+                                } elseif ($horaAtual >= 12 && $horaAtual < 18) {
+                                    $saudacao = 'Boa tarde';
+                                } else {
+                                    $saudacao = 'Boa noite';
+                                }
+                            @endphp
+                            <p class="p mt-2">Olá, {{ $primeiroNome }}. {{ $saudacao }}!</p>
                         </div>
 
                         <ul class="navbar-nav ml-auto">
@@ -109,7 +127,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                     <div class="form-inline mr-auto w-100 navbar-search">
-                                        <p class="p mt-2">Olá, User. Bom dia! <small>Frase Motivacional!</small></p>
+                                        <p class="p mt-2">Olá, {{ $primeiroNome }}. {{ $saudacao }}!</p>
                                     </div>
                                 </div>
                             </li>
@@ -144,8 +162,8 @@
 
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                    <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $primeiroNome}} {{ $segundoNome }}</span>
+                                    <img class="img-profile rounded-circle" src="@if(Auth::user()->sexo == 'M') {{ asset('templante/img/undraw_profile.svg') }} @else {{ asset('templante/img/undraw_profile_3.svg') }} @endif">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">

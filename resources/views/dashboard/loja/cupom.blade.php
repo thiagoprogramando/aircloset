@@ -3,8 +3,28 @@
     <div class="container-fluid">
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Produtos Cadastrados</h1>
+            <h1 class="h3 mb-0 text-gray-800">Cupom</h1>
         </div>
+
+        @if(session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso!',
+                    text: `{{session('success')}}`,
+                })
+            </script>
+        @endif
+
+        @if(session('error'))
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Atenção',
+                    text: `{{session('error')}}`,
+                })
+            </script>
+        @endif
 
         <div class="row">
             <div class="col-xl-12 col-md-12 mb-4">
@@ -13,8 +33,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-3">
-                                    <button class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#exampleModal">FILTROS</button>
-                                    <a class="btn btn-outline-primary" href="{{ route('cadastraProduto') }}">Cadastrar</a>
+                                    <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#exampleModal">CADASTRAR</button>
                                     <button class="btn btn-outline-success" type="button" id="exportar">EXCEL</button>
                                 </div>
                             </div>
@@ -25,27 +44,23 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Título</th>
-                                                <th>Descrição</th>
-                                                <th>Loja</th>
-                                                <th>Valor</th>
+                                                <th>Código</th>
+                                                <th>Desconto</th>
                                                 <th class="text-center">Opções</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($produtos as $key =>$produto)
+                                            @foreach ($cupons as $key =>$cupom)
                                             <tr>
-                                                <td>{{ $produto->id }}</td>
-                                                <td>{{ $produto->titulo }}</td>
-                                                <td>{{ $produto->desc }}</td>
-                                                <td>{{ $produto->nome_loja }}</td>
-                                                <td>{{ $produto->valor }}</td>
+                                                <td>{{ $cupom->id }}</td>
+                                                <td>{{ $cupom->titulo }}</td>
+                                                <td>{{ $cupom->codigo }}</td>
+                                                <td>{{ $cupom->desconto }}</td>
                                                 <td class="text-center">
-                                                    <form action="{{ route('excluiProduto') }}" method="POST">
-                                                        <input type="hidden" name="id" value="{{ $produto->id }}">
+                                                    <form action="{{ route('excluiCupom') }}" method="POST">
                                                         <input type="hidden" value={{  csrf_token() }} name="_token">
-                                                        <button class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
-                                                        <a class="btn btn-outline-warning" href="/cadastraProduto/{{ $produto->id }}"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-outline-primary" href="{{ $produto->id }}"><i class="fa fa-eye"></i></a>
+                                                        <input type="hidden" value="{{ $cupom->id }}" name="id">
+                                                        <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -65,9 +80,9 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form method="POST" action="{{ route('listaProduto') }}">
+                <form method="POST" action="{{ route('cadastraCupom') }}" enctype="multipart/form-data">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Filtros:</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cadastro de Cupom</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                     </div>
                     <div class="modal-body">
@@ -75,19 +90,24 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="titulo" placeholder="Título, nome...">
+                                    <input type="text" class="form-control" name="titulo" placeholder="Título" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="loja" placeholder="Código da Loja">
+                                    <input type="text" class="form-control" name="codigo" placeholder="Código (Sem espaços ex: AIRCLOSET10)" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="desconto" placeholder="Desconto (%)" required>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-success">Filtrar</button>
+                        <button type="submit" class="btn btn-success">Cadastrar</button>
                     </div>
                 </form>
             </div>

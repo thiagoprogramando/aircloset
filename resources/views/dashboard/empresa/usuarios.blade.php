@@ -62,7 +62,11 @@
                                                     <form action="{{ route('excluiUsuario') }}" method="POST">
                                                         <input type="hidden" value={{  csrf_token() }} name="_token">
                                                         <input type="hidden" value="{{ $usuario->id }}" name="id">
-                                                        <button class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                        <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                                        <a class="btn btn-outline-warning" href="/cadastraUsuario/{{ $usuario->id }}"><i class="fa fa-pencil"></i></a>
+                                                        @if($usuario->tipo == 4)
+                                                            <button type="button" id="afiliado" data-link="{{ $usuario->codigo }}" class="btn btn-outline-success"><i class="fa fa-share-alt"></i></button>
+                                                        @endif
                                                     </form>
                                                 </td>
                                             </tr>
@@ -78,4 +82,5 @@
         </div>
 
     </div>
+    <script src="{{ asset('templante/js/usuarios.js') }}"></script>
 @endsection

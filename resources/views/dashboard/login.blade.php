@@ -11,6 +11,7 @@
 
     <link href="{{ asset('templante/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="{{ asset('templante/css/sb-admin-2.css') }}" rel="stylesheet">
 
 </head>
@@ -30,6 +31,15 @@
                                     <div class="text-center mb-2">
                                         <h1 class="h4 text-gray-900">Bem-vindo(a)!</h1>
                                         <small>Área restrita aos fornecedores.</small>
+                                        @if(session('error'))
+                                            <script>
+                                                Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Atenção',
+                                                    text: `{{session('error')}}`,
+                                                })
+                                            </script>
+                                        @endif
                                     </div>
                                     <form class="user" method="POST" action="{{ route('admin') }}">
                                         <input type="hidden" value={{  csrf_token() }} name="_token">

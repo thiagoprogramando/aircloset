@@ -23,7 +23,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('admin_dashboard');
         } else {
-            return redirect()->back()->withErrors(['email' => 'As credenciais fornecidas são inválidas.']);
+            return redirect()->route('admin')->with(['error' => 'As credenciais fornecidas são inválidas!']);
         }
     }
 
@@ -88,6 +88,10 @@ class UserController extends Controller
             }
             if (!empty($request->tipo)) {
                 $user->tipo = $request->tipo;
+                if($request->tipo == 4) {
+                    $nome = explode(' ', $request->nome);
+                    $user->codigo = $nome[0].mt_rand(1000, 9999);
+                }
             }
             if (!empty($request->cep)) {
                 $user->cep = $request->cep;

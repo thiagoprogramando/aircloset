@@ -60,7 +60,6 @@
             </script>
         @endif
 
-
         <div class="row">
             <div class="col-xl-12 col-md-12 mb-4">
                 <div class="card border-left-dark shadow h-100 py-2">
