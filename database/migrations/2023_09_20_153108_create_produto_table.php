@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('status')->nullable();
             $table->string('sexo')->nullable();
             $table->string('comprimento')->nullable();
+            $table->string('tamanho')->nullable();
             $table->string('tecido')->nullable();
             $table->timestamps();
         });

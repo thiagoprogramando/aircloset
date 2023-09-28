@@ -19,6 +19,7 @@ class Produto extends Model
         'status',
         'sexo',
         'comprimento',
+        'tamanho',
         'tecido',
     ];
 }

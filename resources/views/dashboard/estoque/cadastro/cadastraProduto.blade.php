@@ -109,7 +109,7 @@
                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                 <div class="form-group">
                                                     <select class="form-control" name="status">
-                                                        <option value="">Status do Produto</option>
+                                                        <option value="" selected>Status do Produto</option>
                                                         <option value="1">Ativo (disponível)</option>
                                                         <option value="0">Inativo (indisponível)</option>
                                                     </select>
@@ -118,30 +118,76 @@
                                             <div class="col-sm-12 col-md-6 col-lg-6">
                                                 <div class="form-group">
                                                     <select class="form-control" name="sexo">
-                                                        <option value="">Sexo</option>
+                                                        <option value="" selected>Sexo</option>
                                                         <option value="M">Masculino</option>
                                                         <option value="F">Feminino</option>
                                                         <option value="O">Outros</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
                                                 <div class="form-group">
                                                     <select class="form-control" name="comprimento">
-                                                        <option value="">Comprimento</option>
-                                                        <option value="M">Masculino</option>
-                                                        <option value="F">Feminino</option>
-                                                        <option value="O">Outros</option>
+                                                        <option value="" selected>Comprimento</option>
+                                                        <option value="LG">Longuíssimo</option>
+                                                        <option value="L">Longo</option>
+                                                        <option value="M">Médio</option>
+                                                        <option value="C">Curto</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
                                                 <div class="form-group">
                                                     <select class="form-control" name="tecido">
-                                                        <option value="">Tecido</option>
-                                                        <option value="M">Masculino</option>
-                                                        <option value="F">Feminino</option>
-                                                        <option value="O">Outros</option>
+                                                        <option value="" selected>Tecido</option>
+                                                        <option value="Matelasse">Matelasse</option>
+                                                        <option value="Poliéster">Poliéster</option>
+                                                        <option value="Sarja forrado">Sarja forrado</option>
+                                                        <option value="Pelo">Pelo</option>
+                                                        <option value="Camurça">Camurça</option>
+                                                        <option value="Veludo">Veludo</option>
+                                                        <option value="PVC">PVC</option>
+                                                        <option value="Nylon">Nylon</option>
+                                                        <option value="Lã sintética">Lã sintética</option>
+                                                        <option value="Algodão">Algodão</option>
+                                                        <option value="Couro">Couro</option>
+                                                        <option value="Lã">Lã</option>
+                                                        <option value="Malha">Malha</option>
+                                                        <option value="Denim">Denim</option>
+                                                        <option value="Viscose">Viscose</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <select class="form-control" name="tamanho">
+                                                        <option value="" selected>Tamanho</option>
+                                                        <option value="34">34</option>
+                                                        <option value="35">35</option>
+                                                        <option value="36">36</option>
+                                                        <option value="37">37</option>
+                                                        <option value="38">38</option>
+                                                        <option value="2P">2P</option>
+                                                        <option value="4">4</option>
+                                                        <option value="6">6</option>
+                                                        <option value="8">8</option>
+                                                        <option value="10">10</option>
+                                                        <option value="12">12</option>
+                                                        <option value="3P">3P</option>
+                                                        <option value="1P">1P</option>
+                                                        <option value="P">P</option>
+                                                        <option value="ÚNICO">ÚNICO</option>
+                                                        <option value="39">39</option>
+                                                        <option value="40">40</option>
+                                                        <option value="42">42</option>
+                                                        <option value="M">M</option>
+                                                        <option value="46">46</option>
+                                                        <option value="14">14</option>
+                                                        <option value="16">16</option>
+                                                        <option value="G">G</option>
+                                                        <option value="GG">GG</option>
+                                                        <option value="EGG">EGG</option>
+                                                        <option value="PP">PP</option>
                                                     </select>
                                                 </div>
                                             </div>

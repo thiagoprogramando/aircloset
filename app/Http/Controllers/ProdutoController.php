@@ -83,6 +83,9 @@ class ProdutoController extends Controller
                 if (!empty($request->comprimento)) {
                     $produto->comprimento = $request->comprimento;
                 }
+                if (!empty($request->tamanho)) {
+                    $produto->tamanho = $request->tamanho;
+                }
                 if (!empty($request->tecido)) {
                     $produto->tecido = $request->tecido;
                 }
