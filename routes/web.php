@@ -17,6 +17,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('admin_dashboard', [UserController::class, 'admin_dashboard'])->name('admin_dashboard');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/perfil', [UserController::class, 'perfil'])->name('perfil');
+    Route::post('atualizaPerfil', [UserController::class, 'atualizaPerfil'])->name('atualizaPerfil');
 
     Route::get('/listaProduto', [ProdutoController::class, 'listaProduto'])->name('listaProduto');
     Route::post('/listaProduto', [ProdutoController::class, 'listaProduto'])->name('listaProduto');

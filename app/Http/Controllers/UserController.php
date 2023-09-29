@@ -37,6 +37,42 @@ class UserController extends Controller
         return redirect()->route('admin');
     }
 
+    public function perfil() {
+        return view('dashboard.configuracoes.perfil');
+    }
+
+    public function atualizaPerfil(Request $request) {
+        $user = User::find($request->id);
+        if ($user) {
+            if (!empty($request->nome)) {
+                $user->nome = $request->nome;
+            }
+            if (!empty($request->email)) {
+                $user->email = $request->email;
+            }
+            if (!empty($request->password)) {
+                $user->password = Hash::make($request->password);
+            }
+            if (!empty($request->cpfcnpj)) {
+                $user->cpfcnpj = $request->cpfcnpj;
+            }
+            if (!empty($request->celular)) {
+                $user->celular = $request->celular;
+            }
+            if (!empty($request->cep)) {
+                $user->cep = $request->cep;
+            }
+            if (!empty($request->endereco)) {
+                $user->endereco = $request->endereco;
+            }
+
+            $user->save();
+            return redirect()->route('perfil')->with('success', 'Perfil atualizado com sucesso!');
+        } else {
+            return redirect()->route('perfil')->with('error', 'Tente novamente mais tarde!');
+        }
+    }
+
     public function usuarios($tipo) {
         $usuarios = User::where('tipo', $tipo)->get();
 
