@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CupomController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -43,5 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cupom', [CupomController::class, 'index'])->name('cupom');
     Route::post('/cadastraCupom', [CupomController::class, 'cadastraCupom'])->name('cadastraCupom');
     Route::post('excluiCupom', [CupomController::class, 'excluiCupom'])->name('excluiCupom');
+
+    Route::get('/log', [LogController::class, 'log'])->name('log');
 });
 

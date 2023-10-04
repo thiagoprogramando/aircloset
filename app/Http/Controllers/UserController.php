@@ -67,6 +67,8 @@ class UserController extends Controller
             }
 
             $user->save();
+            $log = new LogController();
+            $log->criaLog('Atualizou o próprio perfil');
             return redirect()->route('perfil')->with('success', 'Perfil atualizado com sucesso!');
         } else {
             return redirect()->route('perfil')->with('error', 'Tente novamente mais tarde!');
@@ -89,6 +91,8 @@ class UserController extends Controller
         }
 
         $user->delete();
+        $log = new LogController();
+        $log->criaLog('Excluiu o usuário: '.$user->nome.' com ID:'.$user->id);
         return redirect()->back()->with('success', 'Usuário excluído com sucesso!');
     }
 

@@ -26,6 +26,9 @@ class CupomController extends Controller
         $cupom->desconto = $request->input('desconto');
         $cupom->save();
 
+        $log = new LogController();
+        $log->criaLog('Cadastrou CUPOM com código: '.$request->input('codigo'));
+
         return redirect()->back()->with('success', 'CUPOM cadastrado com sucesso!');
     }
 
@@ -37,6 +40,8 @@ class CupomController extends Controller
         }
 
         $cupom->delete();
+        $log = new LogController();
+        $log->criaLog('Excluiu CUPOM com código: '.$cupom->codigo);
         return redirect()->back()->with('success', 'Cupom excluído com sucesso!');
     }
 }

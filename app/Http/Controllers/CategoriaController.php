@@ -24,6 +24,9 @@ class CategoriaController extends Controller
         $categoria->file = Storage::url($caminhoImagem);
         $categoria->save();
 
+        $log = new LogController();
+        $log->criaLog('Cadastrou categoria: '.$request->input('titulo'));
+
         return redirect()->back()->with('success', 'Categoria cadastrada com sucesso!');
     }
 
@@ -35,6 +38,9 @@ class CategoriaController extends Controller
         }
 
         $categoria->delete();
+
+        $log = new LogController();
+        $log->criaLog('Excluiu categoria: '.$categoria->titulo);
         return redirect()->route('listaCategoria')->with('success', 'Categoria excluída com sucesso.');
     }
 }

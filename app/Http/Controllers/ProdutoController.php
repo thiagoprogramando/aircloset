@@ -36,6 +36,9 @@ class ProdutoController extends Controller
             $produto = new Produto();
             $produto->save();
             $id = $produto->id;
+
+            $log = new LogController();
+            $log->criaLog('Registrou o produto com ID: '.$id);
         }
 
         $produto = Produto::find($id);
@@ -52,6 +55,9 @@ class ProdutoController extends Controller
         if (!$produto) {
             return redirect()->back()->with('error', 'Produto não encontrado.');
         }
+
+        $log = new LogController();
+        $log->criaLog('Excluiu o produto com ID: '.$produto->id.' - Nome/Título: '.$produto->titulo);
 
         $produto->delete();
         return redirect()->route('listaProduto')->with('success', 'Produto excluído com sucesso.');
@@ -91,6 +97,9 @@ class ProdutoController extends Controller
                 }
 
                 $produto->save();
+
+                $log = new LogController();
+                $log->criaLog('Editou o produto com ID: '.$produto->id.' - Nome/Título: '.$produto->titulo);
                 return redirect()->route('cadastraProduto', ['id' => $request->id])->with('success', 'Produto cadastrado/atualizado com sucesso.');
             } else {
                 return redirect()->route('listaProduto')->with('error', 'Produto não encontrado.');
@@ -111,6 +120,8 @@ class ProdutoController extends Controller
             $imagem->file = Storage::url($caminhoImagem);
             $imagem->save();
 
+            $log = new LogController();
+            $log->criaLog('Aplicou imagem no produto com ID: '.$request->input('id'));
             return redirect()->route('cadastraProduto', ['id' => $request->id])->with('success', 'Imagem aplicada com sucesso.');
         } else {
             return redirect()->back()->with('error', 'Nenhuma imagem selecionada.');
@@ -125,6 +136,8 @@ class ProdutoController extends Controller
         }
 
         $imagem->delete();
+        $log = new LogController();
+        $log->criaLog('Excluiu imagem no produto com ID: '.$request->produto);
         if ($request->has('produto')) {
             return redirect()->route('cadastraProduto', ['id' => $request->produto])->with('success', 'Imagem excluída com sucesso.');
         } else {
@@ -137,7 +150,8 @@ class ProdutoController extends Controller
         $categoria->id_produto = $request->input('id');
         $categoria->id_categoria = $request->input('categoria');
         $categoria->save();
-
+        $log = new LogController();
+        $log->criaLog('Aplicou categoria no produto com ID: '.$request->input('id'));
         return redirect()->route('cadastraProduto', ['id' => $request->id])->with('success', 'Categoria aplicada com sucesso.');
     }
 
@@ -150,6 +164,8 @@ class ProdutoController extends Controller
 
         if ($request->has('id')) {
             $categoria->delete();
+            $log = new LogController();
+            $log->criaLog('Excluiu categoria no produto com ID: '.$request->produto);
             return redirect()->route('cadastraProduto', ['id' => $request->produto])->with('success', 'Categoria excluída com sucesso.');
         } else {
             return redirect()->route('cadastraProduto', ['id' => $request->produto])->with('error', 'Erro ao excluir Categoria.');
