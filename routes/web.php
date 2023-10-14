@@ -5,11 +5,12 @@ use App\Http\Controllers\CupomController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\LojaController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [LojaController::class, 'loja'])->name('loja');
+Route::get('/acessar', [LojaController::class, 'acessar'])->name('acessar');
+Route::get('/cadastro', [LojaController::class, 'cadastro'])->name('cadastro');
 
 Route::get('/admin', [UserController::class, 'login_administrador'])->name('admin');
 Route::post('/admin', [UserController::class, 'logar_administrador'])->name('admin');

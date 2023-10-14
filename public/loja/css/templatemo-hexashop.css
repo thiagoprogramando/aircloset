@@ -1748,6 +1748,10 @@ Single Product Page
   margin-bottom: 0px;
 }
 
+.img-produto {
+    height: 500px;
+}
+
 #product .right-content span.price {
   font-size: 18px;
   color: #a1a1a1;
@@ -2376,4 +2380,57 @@ responsive
   100% {
     opacity: 0;
   }
+}
+
+.btn-outline-facebook {
+    color: #007bff !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #007bff !important;
+}
+
+.btn-outline-facebook:hover {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+.btn-outline-facebook:focus {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5) !important;
+}
+
+.btn-outline-facebook:active {
+    color: #fff !important;
+    background-color: #0056b3 !important;
+    border-color: #0056b3 !important;
+}
+
+
+.btn-outline-google {
+    color: #EB4539 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #EB4539 !important;
+}
+
+.btn-outline-google:hover {
+    color: #fff !important;
+    background-color: #EB4539 !important;
+    border-color: #EB4539 !important;
+}
+
+.btn-outline-google:focus {
+    color: #fff !important;
+    background-color: #EB4539 !important;
+    border-color: #EB4539 !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5) !important;
+}
+
+.btn-outline-google:active {
+    color: #fff !important;
+    background-color: #EB4539 !important;
+    border-color: #EB4539 !important;
 }
