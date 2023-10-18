@@ -7,11 +7,21 @@
                     <div class="section-heading text-center">
                         <h2>Bem-Vindo(a) a AIRCLOSET</h2>
                         <span>Preencha seus dados para acessar a plataforma.</span>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
-                    <form id="subscribe" action="" method="get">
+                    <form action="{{ route('loginCliente') }}" method="POST">
                         <div class="row">
+                            @csrf
                             <div class="col-lg-6 offset-lg-3">
-                                <input name="name" type="text" placeholder="CPF" required>
+                                <input name="cpfcnpj" type="number" placeholder="CPF ou CNPJ" required>
                             </div>
                             <div class="col-lg-2">
                                 <button type="submit" class="main-dark-button"><i class="fa fa-plane"></i></button>

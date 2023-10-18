@@ -8,6 +8,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LojaController extends Controller
 {
@@ -61,21 +62,54 @@ class LojaController extends Controller
         return view('login');
     }
 
-    public function logar(Request $request) {
-        $credentials = $request->only(['email', 'password']);
-        $credentials['password'] = $credentials['password'];
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
+    public function loginCliente(Request $request) {
+        $user = User::where('cpfcnpj', $request->cpfcnpj)->first();
+
+        if ($user) {
+            if (Auth::loginUsingId($user->id)) {
+                return redirect()->route('loja');
+            } else {
+                return redirect()->back()->withErrors(['error' => 'Falha ao fazer login!']);
+            }
         } else {
-            return redirect()->back()->withErrors(['error' => 'As credenciais fornecidas são inválidas.']);
+            return redirect()->back()->withErrors(['error' => 'CPF ou CNPJ não encontrado!']);
         }
     }
 
-    public function cadastro() {
-        return view('register');
+    public function cadastro($codigo = null) {
+        return view('register', ['codigo' => $codigo]);
     }
 
-    public function register(Request $request) {
+    public function cadastraCliente(Request $request) {
+        $user = new User();
+        if (!empty($request->nome)) {
+            $user->nome = $request->nome;
+        }
+        if (!empty($request->cpfcnpj)) {
+            $user->cpfcnpj = $request->cpfcnpj;
+        }
+        if (!empty($request->dataNascimento)) {
+            $user->data_nascimento = $request->data_nascimento;
+        }
+        if (!empty($request->email)) {
+            $user->email = $request->email;
+        }
+        if (!empty($request->celular)) {
+            $user->celular = $request->celular;
+        }
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
 
+        Auth::login($user);
+
+        return redirect()->route('loja');
+    }
+
+    public function about ($loja = null) {
+        $loja = User::where('id', $loja)->first();
+
+        return view('loja.blog.about', ['loja' => $loja]);
     }
 }

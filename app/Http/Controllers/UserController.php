@@ -16,8 +16,7 @@ class UserController extends Controller
         return view('dashboard.login');
     }
 
-    public function logar_administrador(Request $request)
-    {
+    public function logar_administrador(Request $request) {
         $credentials = $request->only(['email', 'password']);
         $credentials['password'] = $credentials['password'];
         if (Auth::attempt($credentials)) {
@@ -31,10 +30,14 @@ class UserController extends Controller
         return view('dashboard.index');
     }
 
-    public function logout()
-    {
+    public function logout() {
         Auth::logout();
         return redirect()->route('admin');
+    }
+
+    public function logoutCliente() {
+        Auth::logout();
+        return redirect()->route('loja');
     }
 
     public function perfil() {
@@ -96,8 +99,7 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Usuário excluído com sucesso!');
     }
 
-    public function cadastraUsuario(Request $request, $id = null)
-    {
+    public function cadastraUsuario(Request $request, $id = null) {
         if($id) {
             $user = User::find($id);
             return view('dashboard.empresa.cadastro.cadastraUsuario', ['id' => $id, 'usuario' => $user]);

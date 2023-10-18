@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LojaController::class, 'loja'])->name('loja');
 Route::get('/acessar', [LojaController::class, 'acessar'])->name('acessar');
-Route::get('/cadastro', [LojaController::class, 'cadastro'])->name('cadastro');
+Route::post('/loginCliente', [LojaController::class, 'loginCliente'])->name('loginCliente');
+Route::get('/cadastro/{codigo?}', [LojaController::class, 'cadastro'])->name('cadastro');
+Route::post('/cadastraCliente', [LojaController::class, 'cadastraCliente'])->name('cadastraCliente');
 
 Route::get('/admin', [UserController::class, 'login_administrador'])->name('admin');
 Route::post('/admin', [UserController::class, 'logar_administrador'])->name('admin');
@@ -47,5 +49,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('excluiCupom', [CupomController::class, 'excluiCupom'])->name('excluiCupom');
 
     Route::get('/log', [LogController::class, 'log'])->name('log');
+
+    //Loja - Autenticado
+    Route::get('/logoutCliente', [UserController::class, 'logoutCliente'])->name('logoutCliente');
+    Route::get('/about', [LojaController::class, 'about'])->name('about');
 });
 

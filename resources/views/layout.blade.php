@@ -35,20 +35,24 @@
                         </a>
 
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Início</a></li>
-                            <li class="scroll-to-section"><a href="#men">Moda Masculina</a></li>
-                            <li class="scroll-to-section"><a href="#women">Moda Faminina</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Crianças</a></li>
+                            <li class="scroll-to-section"><a href="./" class="active">Início</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('about') }}">Sobre</a></li>
+                            <li class="scroll-to-section"><a href="#explore">Como funciona?</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Categorias</a>
                                 <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
+                                    @foreach($categorias_all as $categoria)
+                                        <li><a href="#">{{ $categoria->titulo }}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="{{ route('cadastro') }}">Cadastro</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('acessar') }}">Entrar</a></li>
+                            @if(auth()->check())
+                                <li class="scroll-to-section"><a href="{{ route('cadastro') }}">Meus Dados</a></li>
+                                <li class="scroll-to-section"><a href="{{ route('logoutCliente') }}">Sair</a></li>
+                            @else
+                                <li class="scroll-to-section"><a href="{{ route('cadastro') }}">Cadastro</a></li>
+                                <li class="scroll-to-section"><a href="{{ route('acessar') }}">Entrar</a></li>
+                            @endif
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
