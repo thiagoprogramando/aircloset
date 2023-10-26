@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="inner-content">
-                            <h2>Aircloset</h2>
+                            <h2>AIR<b>CLOSET</b> </h2>
                             <span>Um look, Uma escolha &amp; você estravagante!</span>
                         </div>
                     </div>

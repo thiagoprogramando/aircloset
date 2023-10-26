@@ -107,9 +107,30 @@ class LojaController extends Controller
         return redirect()->route('loja');
     }
 
-    public function about ($loja = null) {
-        $loja = User::where('id', $loja)->first();
+    public function atualizaCliente(Request $request) {
+        $user = User::find($request->id);
 
-        return view('loja.blog.about', ['loja' => $loja]);
+        if (!empty($request->nome)) {
+            $user->nome = $request->nome;
+        }
+        if (!empty($request->cpfcnpj)) {
+            $user->cpfcnpj = $request->cpfcnpj;
+        }
+        if (!empty($request->data_nascimento)) {
+            $user->data_nascimento = $request->data_nascimento;
+        }
+        if (!empty($request->email)) {
+            $user->email = $request->email;
+        }
+        if (!empty($request->celular)) {
+            $user->celular = $request->celular;
+        }
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('meusDados')->with('success', 'Dados atualizados com sucesso!');
     }
 }

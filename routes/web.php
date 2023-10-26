@@ -8,17 +8,24 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\LojaController;
 use Illuminate\Support\Facades\Route;
 
+
+//Loja Sem AUTH
 Route::get('/', [LojaController::class, 'loja'])->name('loja');
-Route::get('/acessar', [LojaController::class, 'acessar'])->name('acessar');
+Route::get('/acessar', function () { return view('login'); })->name('acessar');
 Route::post('/loginCliente', [LojaController::class, 'loginCliente'])->name('loginCliente');
+
 Route::get('/cadastro/{codigo?}', [LojaController::class, 'cadastro'])->name('cadastro');
 Route::post('/cadastraCliente', [LojaController::class, 'cadastraCliente'])->name('cadastraCliente');
 
+Route::get('/sobre', function () { return view('loja.blog.about'); })->name('sobre');
+
+//ADMIN sem AUTH
 Route::get('/admin', [UserController::class, 'login_administrador'])->name('admin');
 Route::post('/admin', [UserController::class, 'logar_administrador'])->name('admin');
 
 Route::middleware(['auth'])->group(function () {
 
+    //ADIM - Autenticado
     Route::get('admin_dashboard', [UserController::class, 'admin_dashboard'])->name('admin_dashboard');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/perfil', [UserController::class, 'perfil'])->name('perfil');
@@ -52,6 +59,9 @@ Route::middleware(['auth'])->group(function () {
 
     //Loja - Autenticado
     Route::get('/logoutCliente', [UserController::class, 'logoutCliente'])->name('logoutCliente');
-    Route::get('/about', [LojaController::class, 'about'])->name('about');
+    Route::get('/meusDados', function () { return view('loja.cliente.dados'); })->name('meusDados');
+
+    Route::post('/atualizaCliente', [LojaController::class, 'atualizaCliente'])->name('atualizaCliente');
+
 });
 

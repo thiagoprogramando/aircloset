@@ -19,13 +19,13 @@
                                 <input name="cpfcnpj" type="text" placeholder="CPF ou CNPJ" required>
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">
-                                <input name="dataNascimento" type="text" placeholder="Data de Nascimento" required>
+                                <input name="data_nascimento" type="text" placeholder="Data de Nascimento" required>
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">
                                 <input name="email" type="email" placeholder="Email" required>
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">
-                                <input name="telefone" type="text" placeholder="Telefone" required>
+                                <input name="celular" type="text" placeholder="Telefone" required>
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">
                                 <input name="password" type="number" placeholder="Crie uma senha de 6 digitos" required>

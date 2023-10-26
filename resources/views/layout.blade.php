@@ -31,13 +31,13 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <a href="./" class="logo">
-                            <img src="{{ asset('assets/logo.png') }}">
+                            <img class="w-75" src="{{ asset('assets/logo.png') }}">
                         </a>
 
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="./" class="active">Início</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('about') }}">Sobre</a></li>
-                            <li class="scroll-to-section"><a href="#explore">Como funciona?</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('sobre') }}">Sobre</a></li>
+                            <li class="scroll-to-section"><a href="./#explore">Como funciona?</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Categorias</a>
                                 <ul>
@@ -47,7 +47,7 @@
                                 </ul>
                             </li>
                             @if(auth()->check())
-                                <li class="scroll-to-section"><a href="{{ route('cadastro') }}">Meus Dados</a></li>
+                                <li class="scroll-to-section"><a href="{{ route('meusDados') }}">Meus Dados</a></li>
                                 <li class="scroll-to-section"><a href="{{ route('logoutCliente') }}">Sair</a></li>
                             @else
                                 <li class="scroll-to-section"><a href="{{ route('cadastro') }}">Cadastro</a></li>
@@ -71,7 +71,7 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="{{ asset('assets/logo.png') }}">
+                            <h2 class="text-light">AIR<b>CLOSET</b></h2>
                         </div>
                         <ul>
                             <li><a href="#">AirCloset - Aluguel de casacos, acessórios de inverno e itens de viagens.</a></li>
@@ -127,5 +127,6 @@
     <script src="{{ asset('loja/js/lightbox.js') }}"></script>
     <script src="{{ asset('loja/js/isotope.js') }}"></script>
     <script src="{{ asset('loja/js/custom.js') }}"></script>
+    <script src="{{ asset('loja/js/function.js') }}"></script>
   </body>
 </html>
