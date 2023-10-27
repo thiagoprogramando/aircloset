@@ -1748,8 +1748,20 @@ Single Product Page
   margin-bottom: 0px;
 }
 
+.div-produto {
+  max-height: 500px;
+  min-height: 500px;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .img-produto {
-    height: 500px;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #product .right-content span.price {

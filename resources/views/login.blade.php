@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="card col-lg-8 offset-lg-2 mt-5 mb-5 p-5">
                     <div class="section-heading text-center">
-                        <h2>Bem-Vindo(a) a AIRCLOSET</h2>
+                        <h2>Bem-Vindo(a) ao AIR<b>CLOSET</b></h2>
                         <span>Preencha seus dados para acessar a plataforma.</span>
                         @if ($errors->any())
                             <div class="alert alert-danger">

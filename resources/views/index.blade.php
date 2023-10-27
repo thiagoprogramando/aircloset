@@ -26,9 +26,13 @@
                                             </ul>
                                         </div>
                                         @if ($produto->imagem)
+                                        <div class="div-produto">
                                             <img class="img-produto" src="{{ asset($produto->imagem->file) }}">
+                                        </div>
                                         @else
-                                            <img class="img-produto" src="{{ asset('loja/images/men-02.jpg') }}">
+                                        <div class="div-produto">
+                                            <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}">
+                                        </div>
                                         @endif
                                     </div>
                                     <div class="down-content">
@@ -71,9 +75,13 @@
                                             </ul>
                                         </div>
                                         @if ($produto->imagem)
+                                        <div class="div-produto">
                                             <img class="img-produto" src="{{ asset($produto->imagem->file) }}">
+                                        </div>
                                         @else
-                                            <img class="img-produto" src="{{ asset('loja/images/men-02.jpg') }}">
+                                        <div class="div-produto">
+                                            <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}">
+                                        </div>
                                         @endif
                                     </div>
                                     <div class="down-content">
@@ -116,9 +124,13 @@
                                             </ul>
                                         </div>
                                         @if ($produto->imagem)
+                                        <div class="div-produto">
                                             <img class="img-produto" src="{{ asset($produto->imagem->file) }}">
+                                        </div>
                                         @else
-                                            <img class="img-produto" src="{{ asset('loja/images/men-02.jpg') }}">
+                                        <div class="div-produto">
+                                            <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}">
+                                        </div>
                                         @endif
                                     </div>
                                     <div class="down-content">
