@@ -174,7 +174,7 @@ class ProdutoController extends Controller
 
     public function produto($id) {
         $produto = Produto::find($id);
-        $produtoSemelhantes = Produto::where('loja', $produto->loja)->take(3)->inRandomOrder()->get();
+        $produtoSemelhantes = Produto::where('loja', $produto->loja)->where('sexo', $produto->sexo)->take(3)->inRandomOrder()->get();
         $produtoSemelhantes->each(function ($produto) {
             $imagem = Imagem::where('id_produto', $produto->id)
                 ->inRandomOrder()
