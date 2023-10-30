@@ -6,7 +6,7 @@ use App\Models\Categoria;
 use App\Models\CategoriaProduto;
 use App\Models\Imagem;
 use App\Models\Produto;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -170,5 +170,20 @@ class ProdutoController extends Controller
         } else {
             return redirect()->route('cadastraProduto', ['id' => $request->produto])->with('error', 'Erro ao excluir Categoria.');
         }
+    }
+
+    public function produto($id) {
+        $produto = Produto::find($id);
+        $produtoSemelhantes = Produto::where('loja', $produto->loja)->take(3)->inRandomOrder()->get();
+        $produtoSemelhantes->each(function ($produto) {
+            $imagem = Imagem::where('id_produto', $produto->id)
+                ->inRandomOrder()
+                ->first();
+            $produto->imagem = $imagem;
+        });
+        $loja = User::where('id', $produto->loja)->first();
+        $imagens = Imagem::where('id_produto', $produto->id)->get();
+
+        return view('loja.shop.singleProduct', ['produto' => $produto, 'loja' => $loja, 'imagens' => $imagens, 'produtoSemelhantes' => $produtoSemelhantes]);
     }
 }

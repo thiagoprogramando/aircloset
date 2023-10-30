@@ -30,12 +30,12 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <a href="./" class="logo">
+                        <a href="{{ route('loja') }}" class="logo">
                             <img class="w-75" src="{{ asset('assets/logo.png') }}">
                         </a>
 
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="./" class="active">Início</a></li>
+                            <li class="scroll-to-section"><a href="{{ route('loja') }}" class="active">Início</a></li>
                             <li class="scroll-to-section"><a href="{{ route('sobre') }}">Sobre</a></li>
                             <li class="scroll-to-section"><a href="./#explore">Como funciona?</a></li>
                             <li class="submenu">

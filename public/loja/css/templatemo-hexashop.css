@@ -1730,9 +1730,10 @@ Single Product Page
 }
 
 #product .left-images img {
-  width: 100%;
+  text-align: center;
+  width: auto;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 #product .right-content {
@@ -2311,10 +2312,6 @@ responsive
   }
 }
 
-
-
-
-
 #preloader {
   overflow: hidden;
   background-color: #2a2a2a;
@@ -2420,7 +2417,6 @@ responsive
     border-color: #0056b3 !important;
 }
 
-
 .btn-outline-google {
     color: #EB4539 !important;
     background-color: transparent !important;
@@ -2450,4 +2446,23 @@ responsive
 .register-button {
     background-color: #1e1e1e !important;
     width: 100% !important;
+}
+
+.section-top {
+  margin-top: 10%;
+}
+
+.me-2 {
+  margin-left: 5px !important;
+}
+
+.fa-whatsapp {
+  color: green;
+
+  margin-top: 10px;
+}
+
+.img-semelhantes {
+  max-height: 200px;
+  max-width: 200px;
 }
