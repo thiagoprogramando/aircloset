@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\LojaController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -52,6 +53,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cadastraUsuario/{id?}', [UserController::class, 'cadastraUsuario'])->name('cadastraUsuario');
     Route::post('/cadastraUsuario/{id?}', [UserController::class, 'cadastraUsuario'])->name('cadastraUsuario');
     Route::post('excluiUsuario', [UserController::class, 'excluiUsuario'])->name('excluiUsuario');
+
+    Route::get('/tag', [TagController::class, 'index'])->name('tag');
+    Route::post('/cadastraTag', [TagController::class, 'cadastraTag'])->name('cadastraTag');
+    Route::post('/excluiTag', [TagController::class, 'excluiTag'])->name('excluiTag');
 
     Route::get('/cupom', [CupomController::class, 'index'])->name('cupom');
     Route::post('/cadastraCupom', [CupomController::class, 'cadastraCupom'])->name('cadastraCupom');

@@ -50,8 +50,8 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="#">Pedidos</a>
                             <a class="collapse-item" href="{{ route('cupom') }}">Cupom</a>
-                            <a class="collapse-item" href="/usuarios/3">Clientes</a>
-                            <a class="collapse-item" href="/usuarios/4">Afiliados</a>
+                            <a class="collapse-item" href="{{ route('usuarios', ['tipo' => 3]) }}">Clientes</a>
+                            <a class="collapse-item" href="{{ route('usuarios', ['tipo' => 4]) }}">Afiliados</a>
                         </div>
                     </div>
                 </li>
@@ -73,12 +73,13 @@
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmpresa" aria-expanded="true" aria-controls="collapseEmpresa">
                         <i class="far fa-building"></i>
-                        <span>Empresa/Usuários</span>
+                        <span>Configurações</span>
                     </a>
                     <div id="collapseEmpresa" class="collapse" aria-labelledby="headingEmpresa" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="/usuarios/1">Usuários</a>
-                            <a class="collapse-item" href="/usuarios/2">Empresas</a>
+                            <a class="collapse-item" href="{{ route('usuarios', ['tipo' => 1]) }}">Usuários</a>
+                            <a class="collapse-item" href="{{ route('usuarios', ['tipo' => 2]) }}">Empresas</a>
+                            <a class="collapse-item" href="{{ route('tag') }}">Tag</a>
                         </div>
                     </div>
                 </li>
