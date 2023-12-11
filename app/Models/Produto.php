@@ -22,4 +22,8 @@ class Produto extends Model
         'tamanho',
         'tecido',
     ];
+
+    public function categorias() {
+        return $this->belongsToMany(Categoria::class, 'categoria_produto', 'id_produto', 'id_categoria');
+    }
 }

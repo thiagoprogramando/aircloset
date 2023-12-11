@@ -23,16 +23,15 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="right-content">
-                            <h4>About Us &amp; Our Skills</h4>
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.</span>
+                            <h4>Quem Somos</h4>
+                            <span>A primeira plataforma de Alugueis de Casacos e Roupas em Gramado.</span>
                             <div class="quote">
-                                <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod kon tempor incididunt ut labore.</p>
+                                <i class="fa fa-quote-left"></i><p>Buscamos oferecer aos clientes o máximo de recursos para conforto e segurança nas viagens.</p>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                            <p>Somos a primeira loja e plataforma de aluguel de casacos em Gramado. Agora sua viagem para Gramado ficou leve e econômica com a AirCloset. Arrase nos looks e nas fotos e não passe frio. Você pode reservar pelo site ou ir direto a loja física. Possuímos uma nova unidade em Campos do Jordão."</p>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-location-arrow"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/airclosetgramado"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/airclosetgramado/"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,9 +54,7 @@
                                 <div class="hover-effect">
                                     <div class="inner-content">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"><i class="fa fa-location-arrow"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -75,9 +72,7 @@
                                 <div class="hover-effect">
                                     <div class="inner-content">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"><i class="fa fa-location-arrow"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>

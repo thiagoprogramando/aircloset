@@ -9,6 +9,7 @@
 
         <title>Aircloset - AirCloset- Aluguel de casacos em Gramado e Campos dos Jordôes</title>
 
+        <link rel="icon" href="{{ asset('assets/logo.png') }}" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="{{ asset('loja/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('loja/css/font-awesome.css') }}">
         <link rel="stylesheet" href="{{ asset('loja/css/templatemo-hexashop.css') }}">
@@ -42,7 +43,7 @@
                                 <a href="javascript:;">Categorias</a>
                                 <ul>
                                     @foreach($categorias_all as $categoria)
-                                        <li><a href="#">{{ $categoria->titulo }}</a></li>
+                                        <li><a href="{{ route('catalogo', ['categoria' => $categoria->id]) }}">{{ $categoria->titulo }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -104,8 +105,8 @@
                     <div class="under-footer">
                         <p>Copyright © 2023 Hefesto Tecnologia & Aircloset. Todos os direitos reservados.
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.facebook.com/airclosetgramado"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.instagram.com/airclosetgramado/"><i class="fa fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>

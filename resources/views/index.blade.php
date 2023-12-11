@@ -18,7 +18,6 @@
                         <div class="owl-women-item owl-carousel">
                             @foreach ($produtoFeminino as $produto)
                                 <div class="item">
-                                    
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
@@ -27,21 +26,22 @@
                                             </ul>
                                         </div>
                                         @if ($produto->imagem)
-                                        <div class="div-produto">
-                                            <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset($produto->imagem->file) }}"></a>
-                                        </div>
+                                            <div class="div-produto">
+                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset($produto->imagem->file) }}"></a>
+                                            </div>
                                         @else
-                                        <div class="div-produto">
-                                            <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}">
-                                        </div>
+                                            <div class="div-produto">
+                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}"> </a>
+                                            </div>
                                         @endif
                                     </div>
                                     <div class="down-content">
-                                        <h4>{{ $produto->titulo }}</h4>
-                                        <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
-                                        <small>Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                        <a href="{{ route('produto', ['id' => $produto->id]) }}">
+                                            <h4>{{ $produto->titulo }}</h4>
+                                            <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
+                                            <small class="text-primary">Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                        </a>
                                     </div>
-                                    
                                 </div>
                             @endforeach
                         </div>
@@ -72,24 +72,26 @@
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="{{ route('produto', ['id' => $produto->id]) }}"><i class="fa fa-eye"></i></a></li>
                                                 <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
                                         @if ($produto->imagem)
-                                        <div class="div-produto">
-                                            <img class="img-produto" src="{{ asset($produto->imagem->file) }}">
-                                        </div>
+                                            <div class="div-produto">
+                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset($produto->imagem->file) }}"></a>
+                                            </div>
                                         @else
-                                        <div class="div-produto">
-                                            <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}">
-                                        </div>
+                                            <div class="div-produto">
+                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}"> </a>
+                                            </div>
                                         @endif
                                     </div>
                                     <div class="down-content">
-                                        <h4>{{ $produto->titulo }}</h4>
-                                        <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
-                                        <small>Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                        <a href="{{ route('produto', ['id' => $produto->id]) }}">
+                                            <h4>{{ $produto->titulo }}</h4>
+                                            <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
+                                            <small class="text-primary">Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach
@@ -121,24 +123,26 @@
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="{{ route('produto', ['id' => $produto->id]) }}"><i class="fa fa-eye"></i></a></li>
                                                 <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
                                         @if ($produto->imagem)
-                                        <div class="div-produto">
-                                            <img class="img-produto" src="{{ asset($produto->imagem->file) }}">
-                                        </div>
+                                            <div class="div-produto">
+                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset($produto->imagem->file) }}"></a>
+                                            </div>
                                         @else
-                                        <div class="div-produto">
-                                            <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}">
-                                        </div>
+                                            <div class="div-produto">
+                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}"> </a>
+                                            </div>
                                         @endif
                                     </div>
                                     <div class="down-content">
-                                        <h4>{{ $produto->titulo }}</h4>
-                                        <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
-                                        <small>Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                        <a href="{{ route('produto', ['id' => $produto->id]) }}">
+                                            <h4>{{ $produto->titulo }}</h4>
+                                            <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
+                                            <small class="text-primary">Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach

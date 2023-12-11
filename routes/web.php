@@ -21,6 +21,8 @@ Route::post('/cadastraCliente', [LojaController::class, 'cadastraCliente'])->nam
 Route::get('/sobre', function () { return view('loja.blog.about'); })->name('sobre');
 
 Route::get('/produto/{id}', [ProdutoController::class, 'produto'])->name('produto');
+Route::get('/catalogo/{categoria}', [LojaController::class, 'catalogo'])->name('catalogo');
+Route::post('/listarCatalogo', [LojaController::class, 'catalogo'])->name('listarCatalogo');
 
 //ADMIN sem AUTH
 Route::get('/admin', [UserController::class, 'login_administrador'])->name('admin');

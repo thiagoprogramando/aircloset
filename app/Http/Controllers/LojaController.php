@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Imagem;
 use App\Models\Produto;
 use App\Models\User;
@@ -10,8 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class LojaController extends Controller
-{
+class LojaController extends Controller {
+
     public function loja() {
         $produtoMasculina = Produto::where('sexo', 'M')
             ->inRandomOrder()
@@ -59,10 +60,12 @@ class LojaController extends Controller
     }
 
     public function acessar() {
+
         return view('login');
     }
 
     public function loginCliente(Request $request) {
+
         $user = User::where('cpfcnpj', $request->cpfcnpj)->first();
 
         if ($user) {
@@ -77,10 +80,12 @@ class LojaController extends Controller
     }
 
     public function cadastro($codigo = null) {
+
         return view('register', ['codigo' => $codigo]);
     }
 
     public function cadastraCliente(Request $request) {
+
         $user = new User();
         if (!empty($request->nome)) {
             $user->nome = $request->nome;
@@ -108,6 +113,7 @@ class LojaController extends Controller
     }
 
     public function atualizaCliente(Request $request) {
+
         $user = User::find($request->id);
 
         if (!empty($request->nome)) {
@@ -125,6 +131,9 @@ class LojaController extends Controller
         if (!empty($request->celular)) {
             $user->celular = $request->celular;
         }
+        if (!empty($request->sexo)) {
+            $user->sexo = $request->sexo;
+        }
         if (!empty($request->password)) {
             $user->password = Hash::make($request->password);
         }
@@ -132,5 +141,21 @@ class LojaController extends Controller
         $user->save();
 
         return redirect()->route('meusDados')->with('success', 'Dados atualizados com sucesso!');
+    }
+
+    public function catalogo(Request $request, $idCategoria = null) {
+
+        $categoria = Categoria::find($idCategoria);
+
+        if ($categoria) {
+            $produtos = Produto::whereHas('categorias', function ($query) use ($idCategoria) {
+                $query->where('id_categoria', $idCategoria);
+            })->get();
+
+            return view('loja.shop.shop', ['produtos' => $produtos]);
+        }
+
+        return false;
+
     }
 }

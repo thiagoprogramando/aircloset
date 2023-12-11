@@ -27,6 +27,14 @@
                                 <input name="celular" type="number" placeholder="Telefone" value="{{ auth()->user()->celular }}">
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">
+                                <select name="sexo">
+                                    <option value="{{ auth()->user()->sexo }}" selected>{{ auth()->user()->sexo }}</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Outros ou Prefiro não informar">Outros ou Prefiro não informar</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6 offset-lg-3 mb-2">
                                 <input name="password" type="text" oninput="limitToSixDigits(this)" placeholder="Senha de 6 digitos (Opcional)">
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">
