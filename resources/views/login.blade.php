@@ -17,7 +17,7 @@
                             </div>
                         @endif
                     </div>
-                    <form action="{{ route('loginCliente') }}" method="POST">
+                    <form action="{{ route('login') }}" method="POST">
                         <div class="row">
                             @csrf
                             <div class="col-lg-6 offset-lg-3">

@@ -7,11 +7,21 @@
                     <div class="section-heading text-center">
                         <h2>Bem-Vindo(a) a AIRCLOSET</h2>
                         <span>Informe seus dados para cadastrar-se na plataforma.</span>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                     <form id="subscribe" action="{{ route('cadastraCliente') }}" method="POST">
                         @csrf
                         <div class="row">
                             <input name="codigo" type="hidden" value="{{ $codigo }}">
+                            <input name="tipo" type="hidden" value="3">
                             <div class="col-lg-6 offset-lg-3 mb-2">
                                 <input name="nome" type="text" placeholder="Nome Completo" required>
                             </div>

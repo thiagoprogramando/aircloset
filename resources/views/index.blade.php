@@ -1,5 +1,43 @@
 @extends('layout')
 @section('conteudo')
+
+    <div class="page-heading about-page-heading">
+        <div class="container">
+            <div class="subscribe inner-content">
+                <form action="#" method="POST">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12 mb-3">
+                            <h2>AIR<b>CLOSET</b> </h2>
+                            <span>O que você está buscando?</span>
+                        </div>
+                        <div class="col-sm-12 col-lg-3 offset-lg-1 mb-2">
+                            <select name="categoria">
+                                <option selected>Categorias</option>
+                                @foreach($categorias_all as $categoria)
+                                    <option value="{{ $categoria->id }}">{{ $categoria->titulo }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-lg-3 mb-2">
+                            <select name="categoria">
+                                <option selected>Loja (Unidade)</option>
+                                @foreach($lojas as $loja)
+                                    <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-lg-3 mb-2">
+                            <input name="data" type="text" placeholder="Retirada / Devolução" required>
+                        </div>
+                        <div class="col-sm-12 col-lg-1 mb-2 text-left">
+                            <button type="submit" class="btn-outline-facebook"><i class="fa fa-plane"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <section class="section mt-5" id="women">
         <div class="container">
             <div class="row">
@@ -16,7 +54,7 @@
                 <div class="col-lg-12">
                     <div class="women-item-carousel">
                         <div class="owl-women-item owl-carousel">
-                            @foreach ($produtoFeminino as $produto)
+                            @foreach ($produtosFemininos as $produto)
                                 <div class="item">
                                     <div class="thumb">
                                         <div class="hover-content">
@@ -25,21 +63,19 @@
                                                 <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        @if ($produto->imagem)
-                                            <div class="div-produto">
-                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset($produto->imagem->file) }}"></a>
-                                            </div>
-                                        @else
-                                            <div class="div-produto">
-                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}"> </a>
-                                            </div>
-                                        @endif
+                                        
+                                        <div class="div-produto">
+                                            <a href="{{ route('produto', ['id' => $produto->id]) }}">
+                                                <img class="img-produto" src="{{ optional($produto->imagem)->file ? asset($produto->imagem->file) : 'caminho/do/seu/placeholder.jpg' }}">
+                                            </a>
+                                        </div>
+                                      
                                     </div>
                                     <div class="down-content">
                                         <a href="{{ route('produto', ['id' => $produto->id]) }}">
                                             <h4>{{ $produto->titulo }}</h4>
                                             <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
-                                            <small class="text-primary">Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                            <small class="text-primary">Disponivel na loja: <b></b></small>
                                         </a>
                                     </div>
                                 </div>
@@ -67,7 +103,7 @@
                 <div class="col-lg-12">
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
-                            @foreach ($produtoMasculina as $produto)
+                            @foreach ($produtosMasculinos as $produto)
                                 <div class="item">
                                     <div class="thumb">
                                         <div class="hover-content">
@@ -76,21 +112,17 @@
                                                 <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        @if ($produto->imagem)
-                                            <div class="div-produto">
-                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset($produto->imagem->file) }}"></a>
-                                            </div>
-                                        @else
-                                            <div class="div-produto">
-                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}"> </a>
-                                            </div>
-                                        @endif
+                                        <div class="div-produto">
+                                            <a href="{{ route('produto', ['id' => $produto->id]) }}">
+                                                <img class="img-produto" src="{{ optional($produto->imagem)->file ? asset($produto->imagem->file) : 'caminho/do/seu/placeholder.jpg' }}">
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="down-content">
                                         <a href="{{ route('produto', ['id' => $produto->id]) }}">
                                             <h4>{{ $produto->titulo }}</h4>
                                             <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
-                                            <small class="text-primary">Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                            <small class="text-primary">Disponivel na loja: <b></b></small>
                                         </a>
                                     </div>
                                 </div>
@@ -118,7 +150,7 @@
                 <div class="col-lg-12">
                     <div class="kid-item-carousel">
                         <div class="owl-kid-item owl-carousel">
-                            @foreach ($produtoOutro as $produto)
+                            @foreach ($produtosOutros as $produto)
                                 <div class="item">
                                     <div class="thumb">
                                         <div class="hover-content">
@@ -127,21 +159,17 @@
                                                 <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        @if ($produto->imagem)
-                                            <div class="div-produto">
-                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset($produto->imagem->file) }}"></a>
-                                            </div>
-                                        @else
-                                            <div class="div-produto">
-                                                <a href="{{ route('produto', ['id' => $produto->id]) }}"> <img class="img-produto" src="{{ asset('loja/images/left-banner-image.jpg') }}"> </a>
-                                            </div>
-                                        @endif
+                                        <div class="div-produto">
+                                            <a href="{{ route('produto', ['id' => $produto->id]) }}">
+                                                <img class="img-produto" src="{{ optional($produto->imagem)->file ? asset($produto->imagem->file) : 'caminho/do/seu/placeholder.jpg' }}">
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="down-content">
                                         <a href="{{ route('produto', ['id' => $produto->id]) }}">
                                             <h4>{{ $produto->titulo }}</h4>
                                             <span>R$ {{ number_format($produto->valor, 2, ',', '.') }}</span>
-                                            <small class="text-primary">Disponivel na loja: <b>{{ $produto->loja->nome }}</b></small>
+                                            <small class="text-primary">Disponivel na loja: <b></b></small>
                                         </a>
                                     </div>
                                 </div>

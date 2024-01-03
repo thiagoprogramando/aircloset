@@ -32,7 +32,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <a href="{{ route('loja') }}" class="logo">
-                            <img class="w-75" src="{{ asset('assets/logo.png') }}">
+                            <img width="70%" src="{{ asset('assets/logo.png') }}">
                         </a>
 
                         <ul class="nav">
@@ -114,6 +114,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('loja/js/jquery-2.1.0.min.js') }}"></script>
     <script src="{{ asset('loja/js/popper.js') }}"></script>
     <script src="{{ asset('loja/js/bootstrap.min.js') }}"></script>
@@ -129,5 +130,25 @@
     <script src="{{ asset('loja/js/isotope.js') }}"></script>
     <script src="{{ asset('loja/js/custom.js') }}"></script>
     <script src="{{ asset('loja/js/function.js') }}"></script>
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: `{{ session('success') }}`,
+            })
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção',
+                text: `{{ session('error') }}`,
+            })
+        </script>
+    @endif
   </body>
 </html>

@@ -22,7 +22,7 @@ class User extends Authenticatable
         'celular',
         'termos',
         'ofertas',
-        'tipo',
+        'tipo', // 1 - Admin 2 - Loja - 3 Cliente
         'cep',
         'endereco',
         'loja',

@@ -1267,7 +1267,7 @@ Explore
 
 #explore .left-content span {
   font-size: 14px;
-  color: #aaaaaa;
+  color: #000000;
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1292,7 +1292,7 @@ Explore
 
 #explore .left-content p {
   font-size: 14px;
-  color: #aaaaaa;
+  color: #000000;
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1591,16 +1591,6 @@ footer .under-footer a:hover {
 Products Page
 ---------------------------------------------
 */
-
-.page-heading {
-  margin-top: 160px;
-  margin-bottom: 30px;
-  background-image: url(../images/products-page-heading.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .page-heading .inner-content {
   padding: 150px 0px;
   text-align: center;
@@ -1807,7 +1797,7 @@ Single Product Page
 
 #product .right-content span {
   font-size: 14px;
-  color: #aaaaaa;
+  color: #000000;
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1832,7 +1822,7 @@ Single Product Page
 
 #product .right-content p {
   font-size: 14px;
-  color: #aaaaaa;
+  color: #000000;
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1949,12 +1939,22 @@ About Us Page
 */
 
 .about-page-heading {
-  margin-top: 160px;
-  margin-bottom: 30px;
+  position: relative;
+  margin-bottom: 10px;
   background-image: url(../images/about-us-page-heading.png);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.about-page-heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Ajuste a opacidade conforme necessário */
 }
 
 .about-us {
@@ -1978,7 +1978,7 @@ About Us Page
 
 .about-us .right-content span {
   font-size: 14px;
-  color: #aaaaaa;
+  color: #000000;
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -2003,7 +2003,7 @@ About Us Page
 
 .about-us .right-content p {
   font-size: 14px;
-  color: #aaaaaa;
+  color: #000000;
   font-weight: 500;
   display: block;
   margin-top: 25px;
