@@ -38,6 +38,13 @@
                                 <input name="celular" type="text" placeholder="Telefone" required>
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">
+                                <select name="sexo">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Outros ou Prefiro não informar">Outros ou Prefiro não informar</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6 offset-lg-3 mb-2">
                                 <input name="password" type="number" placeholder="Crie uma senha de 6 digitos" required>
                             </div>
                             <div class="col-lg-6 offset-lg-3 mb-2">

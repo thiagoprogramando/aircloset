@@ -54,11 +54,11 @@
                                 <div class="hover-effect">
                                     <div class="inner-content">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-location-arrow"></i></a></li>
+                                            <li><a href="https://maps.app.goo.gl/gye8c8mSyfYdjGhc9"><i class="fa fa-location-arrow"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <img src="{{ asset('loja/images/team-member-01.jpg') }}">
+                                <img src="{{ asset('loja/images/gramado.png') }}">
                             </div>
                             <div class="down-content">
                                 <h4>Aircloset - Gramado/RS</h4>
@@ -72,11 +72,11 @@
                                 <div class="hover-effect">
                                     <div class="inner-content">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-location-arrow"></i></a></li>
+                                            <li><a href="https://maps.app.goo.gl/r64Sh4TcDtjLdDMj6"><i class="fa fa-location-arrow"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <img src="{{ asset('loja/images/team-member-02.jpg') }}">
+                                <img src="{{ asset('loja/images/campos.png') }}">
                             </div>
                             <div class="down-content">
                                 <h4>Aircloset - Campos do Jordão/RS</h4>
