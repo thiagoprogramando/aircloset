@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>Copyright © 2023 Hefesto Tecnologia & Aircloset. Todos os direitos reservados.
+                        <p>Copyright © 2024 Aircloset. Todos os direitos reservados.
                         <ul>
                             <li><a href="https://www.facebook.com/airclosetgramado"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="https://www.instagram.com/airclosetgramado/"><i class="fa fa-instagram"></i></a></li>

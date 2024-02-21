@@ -27,6 +27,30 @@ class LojaController extends Controller {
         }
 
         return false;
+    }
+
+    public function filtros(Request $request) {
+
+        $categoria = $request->input('categoria');
+        $loja = $request->input('loja');
+        $retirada = $request->input('retirada');
+        $devolucao = $request->input('devolucao');
+
+        $produtos = Produto::query();
+
+        if ($categoria) {
+            $produtos->whereHas('categorias', function ($query) use ($categoria) {
+                $query->where('id_categoria', $categoria);
+            });
+        }
+
+        if ($loja) {
+            $produtos->where('loja', $loja);
+        }
+
+        $resultado = $produtos->get();
+
+        return view('loja.shop.shop', ['produtos' => $resultado]);
 
     }
 }

@@ -4,7 +4,7 @@
     <div class="page-heading about-page-heading">
         <div class="container">
             <div class="subscribe inner-content">
-                <form action="#" method="POST">
+                <form action="{{ route('filtros') }}" method="GET">
                     <div class="row">
                         <div class="col-sm-12 col-lg-12 mb-3">
                             <h2>AIR<b>CLOSET</b> </h2>
@@ -12,22 +12,25 @@
                         </div>
                         <div class="col-sm-12 col-lg-3 offset-lg-1 mb-2">
                             <select name="categoria">
-                                <option selected>Categorias</option>
+                                <option value="" selected>Categorias</option>
                                 @foreach($categorias_all as $categoria)
                                     <option value="{{ $categoria->id }}">{{ $categoria->titulo }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-sm-12 col-lg-3 mb-2">
-                            <select name="categoria">
-                                <option selected>Loja (Unidade)</option>
+                            <select name="loja">
+                                <option value="" selected>Loja (Unidade)</option>
                                 @foreach($lojas as $loja)
                                     <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-12 col-lg-3 mb-2">
-                            <input name="data" type="text" placeholder="Retirada / Devolução" required>
+                        <div class="col-sm-12 col-lg-2 mb-2">
+                            <input name="retirada" type="text" placeholder="Retirada">
+                        </div>
+                        <div class="col-sm-12 col-lg-2 mb-2">
+                            <input name="devolucao" type="text" placeholder="Devolução">
                         </div>
                         <div class="col-sm-12 col-lg-1 mb-2 text-left">
                             <button type="submit" class="btn-outline-facebook"><i class="fa fa-plane"></i></button>

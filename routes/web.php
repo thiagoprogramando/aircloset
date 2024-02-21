@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/catalogo/{categoria}', [LojaController::class, 'catalogo'])->name('catalogo');
     Route::post('/listarCatalogo', [LojaController::class, 'catalogo'])->name('listarCatalogo');
 
+    Route::get('/filtros', [LojaController::class, 'filtros'])->name('filtros');
+
 //ADMIN sem AUTH
 Route::get('/admin', [UserController::class, 'login_administrador'])->name('admin');
 Route::post('/admin', [UserController::class, 'logar_administrador'])->name('admin');
